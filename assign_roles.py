@@ -10,7 +10,7 @@ def has_jinbaobao(char_groups):
 if __name__ == "__main__":
 
 	if len(sys.argv) < 2:
-		print("Usage: python werewolf_sample.py n_players\nExample:python werewolf_sample.py 6")
+		print("Usage: python assign_roles.py n_players\nExample:python assign_roles.py 6")
 		exit(1)
 	n_players = int(sys.argv[1])
 
