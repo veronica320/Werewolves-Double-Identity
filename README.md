@@ -3,11 +3,11 @@
 
 ## Usage
 ```
-python werewolf_sample.py n_players(can be 6 or 8)
+python assign_roles.py n_players(can be 6 or 8)
 ```
 Example:
 ```
-python werewolf_sample.py 6
+python assign_roles.py 6
 ```
 Output:
 ```
