@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
 		if num_jinbaobao(char_groups) == 0:
 			continue
-		if n_players in [7, 8] and num_jinbaobao(char_groups) >= 3:
+		if n_players in [6, 7, 8] and num_jinbaobao(char_groups) >= 3:
 			continue
 		if n_players == 9 and num_jinbaobao(char_groups) >= 4:
 			continue
