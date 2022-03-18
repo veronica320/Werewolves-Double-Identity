@@ -9,12 +9,12 @@ def num_jinbaobao(char_groups):
 if __name__ == "__main__":
 
 	if len(sys.argv) < 2:
-		print("Usage: python assign_roles.py n_players(6-9)\nExample:python assign_roles.py 6")
+		print("Usage: python assign_roles.py n_players(5-11)\nExample:python assign_roles.py 6")
 		exit(1)
 	n_players = int(sys.argv[1])
 
-	if n_players < 5 or n_players > 9:
-		print("n_players can only be between 6-9.")
+	if n_players < 5 or n_players > 11:
+		print("n_players can only be between 6-11.")
 		exit(1)
 	if n_players == 5:
 		characters = ["潜行狼"] + \
@@ -36,6 +36,14 @@ if __name__ == "__main__":
 		characters = ["狼王"] + ["狼人"] + ["潜行狼"] + \
 					 ["预言家"] + ["女巫"] + ["猎人"] + ["守卫"] + ["白痴"] + ["禁言长老"] + \
 					 ["盗贼"] + ["平民"]*8
+	elif n_players == 10:
+		characters = ["恶灵骑士"] + ["狼人"] + ["潜行狼"] + \
+					 ["预言家"] + ["女巫"] + ["猎人"] + ["守卫"] + ["白痴"] + ["禁言长老"] + \
+					 ["盗贼"] + ["平民"]*10
+	elif n_players == 11:
+		characters = ["狼王"] + ["恶灵骑士"] + ["潜行狼"] + \
+					 ["预言家"] + ["女巫"] + ["猎人"] + ["守卫"] + ["白痴"] + ["禁言长老"] + \
+					 ["盗贼"] + ["平民"]*12
 
 	n_characters = len(characters)
 	assert n_characters == 2*n_players
@@ -50,20 +58,16 @@ if __name__ == "__main__":
 
 		if num_jinbaobao(char_groups) == 0:
 			continue
-		if n_players in [6, 7, 8] and num_jinbaobao(char_groups) >= 3:
-			continue
-		if n_players == 9 and num_jinbaobao(char_groups) >= 4:
-			continue
 
+		ratio_jinbaobao = num_jinbaobao(char_groups) / n_players
+		if ratio_jinbaobao < 0.15 or ratio_jinbaobao > 0.40:
+			continue
 
 		for char_group in char_groups:
-			if char_group == {"狼王", "盗贼"}:
+			if char_group == {"狼人", "潜行狼"} or char_group == {"狼王", "潜行狼"} or char_group == {"恶灵骑士", "潜行狼"}:
 				is_valid = False
 				break
-			if char_group == {"狼人", "潜行狼"} or char_group == {"狼王", "潜行狼"} or char_group == {"狼人", "狼王"}:
-				is_valid = False
-				break
-			if char_group == {"狼人", "预言家"} or char_group == {"潜行狼", "预言家"} or char_group == {"狼王", "预言家"}:
+			if char_group == {"狼人", "预言家"} or char_group == {"潜行狼", "预言家"} or char_group == {"狼王", "预言家"} or char_group == {"恶灵骑士", "预言家"}:
 				is_valid = False
 				break
 

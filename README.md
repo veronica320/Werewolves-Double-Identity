@@ -1,9 +1,9 @@
 # Werewolves-Double-Identity
-用于双身份狼人杀发放身份的小程序，适用于5-9人。
+用于双身份狼人杀发放身份的小程序，适用于5-11人。
 
 ## Usage
 ```
-python assign_roles.py n_players(5-9)
+python assign_roles.py n_players(5-11)
 ```
 Example:
 ```
